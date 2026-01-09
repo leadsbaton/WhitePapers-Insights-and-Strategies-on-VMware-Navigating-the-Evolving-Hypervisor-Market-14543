@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title> Data Lakes vs. Data Warehouses: A Cost and Performance Benchmark
+    <title> Insights and Strategies on VMware: Navigating
+        the Evolving Hypervisor Market
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -39,7 +40,8 @@
     <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 mb-16">
         <section class="bg-white rounded-2xl shadow-card p-6 sm:p-10">
             <h1 class="text-2xl font-semibold mb-4">
-                Data Lakes vs. Data Warehouses: A Cost and Performance Benchmark
+                Insights and Strategies on VMware: Navigating
+                the Evolving Hypervisor Market
 
             </h1>
             <p class="mt-2 text-sm sm:text-base text-gray-600">
@@ -49,8 +51,7 @@
             <form id="contactForm" class="mt-8 grid grid-cols-1 gap-5 max-w-xl">
                 <!-- Identify this as Form 1 -->
                 <input type="hidden" name="form_name"
-                    value="Data Lakes vs. Data Warehouses: A Cost and Performance Benchmark" />
-
+                    value="Insights and Strategies on VMware: Navigating the Evolving Hypervisor Market" />
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
                     <input id="name" name="name" type="text" autocomplete="name" required
@@ -137,9 +138,7 @@
         const EMAIL_SERVICE_ID = "service_z09fuxl";
         const EMAIL_TEMPLATE_ID = "template_sgg6gwp";
 
-        //link
-        // https://portal.gigaom.com/reprint/data-lakes-vs-data-warehouses-a-cost-comparison-25-1291-1-fivetran
-        const LINK = "https://portal.gigaom.com/reprint/data-lakes-vs-data-warehouses-a-cost-comparison-25-1291-1-fivetran";
+        const PDF_URL = "https://leadsbaton.github.io/WhitePapers-Insights-and-Strategies-on-VMware-Navigating-the-Evolving-Hypervisor-Market-14543/assets/pdf/Plotting-your-course-to-future-success-with-SAP.pdf";
 
         /* ---------------------------------------------------------
            Boot
@@ -229,18 +228,16 @@
                 setLoading(true);
                 await emailjs.send(EMAIL_SERVICE_ID, EMAIL_TEMPLATE_ID, payload);
 
-                showToast("Thank you! Your submission has been received.");
+                showToast("Success! Your download will start now.");
+                form.classList.add('hidden');
 
-                // reset form
-                form.reset();
-
-                // 👉 OPEN LINK IN NEW TAB AFTER SUCCESS
-                setTimeout(() => {
-                    window.open(LINK, '_blank');
-                }, 800);
-
-                //clear data
-                form.reset();
+                // Direct download instead of web view
+                const link = document.createElement('a');
+                link.href = PDF_URL;
+                link.download = PDF_URL.split('/').pop() || 'Plotting-your-course-to-future-success-with-SAP.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
 
             } catch (err) {
                 console.error('EmailJS Error:', err);
